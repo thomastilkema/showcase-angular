@@ -1,0 +1,27 @@
+<nav>
+  <ul class="flex font-semibold">
+    <li>
+      <a
+        class="transition-colors inline-block p-3 sr-only focus:not-sr-only focus:p-3"
+        href="#main-content"
+      >Go to main content</a>
+    </li>
+    <li *ngFor="let route of routes">
+      <a
+        class="transition-colors inline-block p-3 border-b border-transparent hover:border-slate-400 dark:hover:border-slate-200"
+        routerLinkActive="border-slate-300 dark:border-slate-400"
+        [routerLink]="route.routerLink"
+        [routerLinkActiveOptions]="route.routerLinkActiveOptions"
+      >{{ route.text }}</a>
+    </li>
+    <li class="grow text-right">
+      <a
+        [attr.href]="sourceCodeUrl"
+        target="_blank"
+        class="inline-block p-3"
+      >
+        Source code
+      </a>
+    </li>
+  </ul>
+</nav>
