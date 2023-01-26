@@ -8,6 +8,11 @@ const routes: Routes = [
       import('@app/section/home').then((module) => module.HomeModule),
     path: omitFirstCharacter(Route.Home),
   },
+  {
+    loadChildren: () =>
+      import('@app/section/sign-up').then((module) => module.SignUpModule),
+    path: omitFirstCharacter(Route.SignUp),
+  },
 ];
 
 @NgModule({
