@@ -10,6 +10,11 @@ const routes: Routes = [
   },
   {
     loadChildren: () =>
+      import('@app/section/log-in').then((module) => module.LogInModule),
+    path: omitFirstCharacter(Route.LogIn),
+  },
+  {
+    loadChildren: () =>
       import('@app/section/sign-up').then((module) => module.SignUpModule),
     path: omitFirstCharacter(Route.SignUp),
   },
