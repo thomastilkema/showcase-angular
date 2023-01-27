@@ -1,11 +1,14 @@
 import { RouterTestingModule } from '@angular/router/testing';
+import { IconComponent } from '@app/module/shared';
 import { createComponentFactory } from '@ngneat/spectator';
+import { MockComponent } from 'ng-mocks';
 import { MainNavComponent } from './main-nav.component';
 import { ComponentPageObject } from './main-nav.component.page-object';
 
 describe('The <tms-main-content> component', () => {
   const createSpectator = createComponentFactory({
     component: MainNavComponent,
+    declarations: [MockComponent(IconComponent)],
     imports: [RouterTestingModule],
   });
 
