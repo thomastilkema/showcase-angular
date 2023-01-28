@@ -3,10 +3,24 @@ import { By } from '@angular/platform-browser';
 import { Spectator } from '@ngneat/spectator';
 
 export class PageObject<Component> {
-  constructor(protected readonly spectator: Spectator<Component>) {}
+  tick: Spectator<Component>['tick'];
+
+  constructor(protected readonly spectator: Spectator<Component>) {
+    this.tick = this.spectator.tick;
+  }
 
   get componentInstance() {
     return this.spectator.component;
+  }
+
+  get nativeElement(): HTMLElement {
+    return this.spectator.element;
+  }
+
+  click(element: HTMLElement | null) {
+    if (element) {
+      element.click();
+    }
   }
 
   detectChanges() {
