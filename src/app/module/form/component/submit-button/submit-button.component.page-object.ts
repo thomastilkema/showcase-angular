@@ -3,7 +3,7 @@ import { SubmitButtonComponent } from './submit-button.component';
 
 export class ComponentPageObject extends PageObject<SubmitButtonComponent> {
   getButtonText() {
-    return this.getButton()?.innerText.trim();
+    return this.getInnerTextOf(this.getButton());
   }
 
   getButtonType() {

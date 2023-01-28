@@ -7,7 +7,7 @@ export class ComponentPageObject extends PageObject<LabelComponent> {
   }
 
   getLabelText() {
-    return this.getLabel()?.innerText.trim();
+    return this.getInnerTextOf(this.getLabel());
   }
 
   private getLabel() {

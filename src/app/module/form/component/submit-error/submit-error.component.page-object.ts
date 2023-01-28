@@ -3,6 +3,6 @@ import { SubmitErrorComponent } from './submit-error.component';
 
 export class ComponentPageObject extends PageObject<SubmitErrorComponent> {
   getForErrorsContent() {
-    return this.findElement('tms-form-errors')?.innerText.trim();
+    return this.getInnerTextByCss('tms-form-errors');
   }
 }

@@ -31,12 +31,18 @@ export class PageObject<Component> {
     this.spectator.detectComponentChanges();
   }
 
-  protected findComponentInstance<T>(selector: Type<T>): T | undefined {
-    return this.spectator.query(selector) ?? undefined;
+  getInnerTextOf(element?: HTMLElement) {
+    return element?.innerText.trim();
   }
 
-  protected findComponentInstances<T>(selector: Type<T>): T[] {
-    return this.spectator.queryAll(selector);
+  protected findComponentInstance<T>(
+    componentInstance: Type<T>
+  ): T | undefined {
+    return this.spectator.query(componentInstance) ?? undefined;
+  }
+
+  protected findComponentInstances<T>(componentInstance: Type<T>): T[] {
+    return this.spectator.queryAll(componentInstance);
   }
 
   protected findDebugElement(selector: string): DebugElement | undefined {
@@ -59,5 +65,9 @@ export class PageObject<Component> {
     return this.findDebugElements(selector).map(
       (debugElement) => debugElement.nativeElement
     );
+  }
+
+  protected getInnerTextByCss(selector: string) {
+    return this.getInnerTextOf(this.findElement(selector));
   }
 }

@@ -12,7 +12,7 @@ export class ComponentPageObject extends PageObject<AlertComponent> {
   }
 
   getProvidedContent() {
-    return this.findElement('tms-icon + div')?.innerText?.trim();
+    return this.getInnerTextByCss('tms-icon + div');
   }
 
   hasAlertRole() {

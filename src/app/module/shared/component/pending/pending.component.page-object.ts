@@ -3,7 +3,7 @@ import { PendingComponent } from './pending.component';
 
 export class ComponentPageObject extends PageObject<PendingComponent> {
   getProvidedContent() {
-    return this.getContentElement()?.innerText.trim();
+    return this.getInnerTextOf(this.getContentElement());
   }
 
   isBlurred() {

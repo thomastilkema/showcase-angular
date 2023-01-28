@@ -47,7 +47,7 @@ describe('The <tms-input-errors-summary> component', () => {
     expect(errorButtons.length).toBe(2);
 
     errorButtons.forEach((errorButton, index) => {
-      expect(errorButton.innerText.trim()).toBe(
+      expect(pageObject.getInnerTextOf(errorButton)).toBe(
         pageObject.componentInstance.invalidInputComponents[index].label
       );
     });

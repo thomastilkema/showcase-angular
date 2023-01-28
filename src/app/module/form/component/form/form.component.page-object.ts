@@ -8,11 +8,11 @@ export class ComponentPageObject extends PageObject<FormComponent> {
   }
 
   getProvidedContentText() {
-    return this.nativeElement.innerText;
+    return this.getInnerTextOf(this.nativeElement);
   }
 
   getSubmitError() {
-    return this.findElement('tms-submit-error')?.innerText?.trim();
+    return this.getInnerTextByCss('tms-submit-error');
   }
 
   isDisplayedAsPending() {
