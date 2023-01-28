@@ -1,0 +1,15 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <tms-pending [isPending]="isPending">
+    <ng-content
+      *ngIf="shouldDisplaySubmitErrors"
+      select="tms-submit-error"
+    ></ng-content>
+
+    <tms-input-errors-summary
+      *ngIf="formGroup.invalid && shouldDisplayInputErrorsSummary"
+      [invalidInputComponents]="getInvalidInputComponents()"
+    ></tms-input-errors-summary>
+
+    <ng-content></ng-content>
+  </tms-pending>
+</form>

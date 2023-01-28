@@ -1,0 +1,12 @@
+<tms-form-errors class="mb-4 block">
+  <p>The following form fields contain one or more errors:</p>
+  <ul class="list-square ml-4 mt-2">
+    <li *ngFor="let inputComponent of invalidInputComponents">
+      <button
+        (click)="focusOnInputErrors(inputComponent)"
+        class="underline"
+        type="button"
+      >{{ inputComponent.label }}</button>
+    </li>
+  </ul>
+</tms-form-errors>

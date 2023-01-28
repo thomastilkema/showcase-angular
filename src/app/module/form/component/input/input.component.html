@@ -1,0 +1,26 @@
+<tms-label *ngIf="label" [for]="id">{{ label }}</tms-label>
+
+<tms-input-errors
+  *ngIf="shouldDisplayInputErrors()"
+  [control]="getControl()"
+></tms-input-errors>
+
+<div class="relative">
+  <tms-icon
+    *ngIf="shouldDisplayInputErrors()"
+    class="absolute mt-2 ml-2 text-red-600"
+    name="warning"
+  ></tms-icon>
+  <input
+    class="block border text-slate-700 p-2 w-full rounded-sm"
+    [attr.id]="id"
+    [attr.name]="id"
+    [attr.type]="type"
+    [formControl]="getControl()"
+    [ngClass]="{
+      'border-red-600 pl-9': shouldDisplayInputErrors(),
+      'border-slate-300': !shouldDisplayInputErrors()
+    }"
+  />
+</div>
+

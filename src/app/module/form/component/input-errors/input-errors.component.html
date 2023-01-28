@@ -1,0 +1,11 @@
+<tms-alert class="mb-3 block">
+  <p *ngIf="hasOneValidityMessage(); else multipleErrors">{{ getFirstValidityMessage() }}</p>
+
+  <ng-template #multipleErrors>
+    <ul class="list-square ml-12">
+      <li *ngFor="let validityMessage of getValidityMessages()">
+        {{ validityMessage }}
+      </li>
+    </ul>
+  </ng-template>
+</tms-alert>
