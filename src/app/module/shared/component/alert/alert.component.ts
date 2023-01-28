@@ -11,7 +11,7 @@ export class AlertComponent {
   @Input() hasRole = true;
   @Input() type: AlertType = 'danger';
 
-  getIconName(): string {
+  getIconName() {
     const mappings = {
       danger: 'warning',
       info: 'info',

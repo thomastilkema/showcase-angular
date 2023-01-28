@@ -29,15 +29,14 @@ export class PageObject<Component> {
     return this.spectator.debugElement.query(By.css(selector)) ?? undefined;
   }
 
-  protected findDebugElements(selector: string): DebugElement[] {
+  protected findDebugElements(selector: string) {
     return this.spectator.debugElement.queryAll(By.css(selector));
   }
 
   protected findElement<ElementType = HTMLElement>(
     selector: string
   ): ElementType | undefined {
-    const debugElement = this.findDebugElement(selector);
-    return debugElement ? debugElement.nativeElement : undefined;
+    return this.findDebugElement(selector)?.nativeElement ?? undefined;
   }
 
   protected findElements<ElementType = HTMLElement>(

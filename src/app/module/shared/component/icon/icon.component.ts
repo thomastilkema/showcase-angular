@@ -10,7 +10,7 @@ export class IconComponent {
   @Input() name: string;
   @Input() width = 24;
 
-  getImagePath(): string {
+  getImagePath() {
     return `/assets/img/icons.svg#${this.name}`;
   }
 }

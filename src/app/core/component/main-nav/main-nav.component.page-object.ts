@@ -3,7 +3,7 @@ import { PageObject } from '@app/test';
 import { MainNavComponent } from './main-nav.component';
 
 export class ComponentPageObject extends PageObject<MainNavComponent> {
-  getGoToMainContentLink(): HTMLElement | undefined {
+  getGoToMainContentLink() {
     return this.findLinkByUrl('#main-content');
   }
 
