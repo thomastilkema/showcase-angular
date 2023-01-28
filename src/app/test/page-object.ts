@@ -1,12 +1,32 @@
-import { DebugElement } from '@angular/core';
+import { DebugElement, Type } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { Spectator } from '@ngneat/spectator';
 
 export class PageObject<Component> {
   constructor(protected readonly spectator: Spectator<Component>) {}
 
-  protected findDebugElement(selector: string): DebugElement | null {
-    return this.spectator.debugElement.query(By.css(selector));
+  get componentInstance() {
+    return this.spectator.component;
+  }
+
+  detectChanges() {
+    this.spectator.detectChanges();
+  }
+
+  detectComponentChanges() {
+    this.spectator.detectComponentChanges();
+  }
+
+  protected findComponentInstance<T>(selector: Type<T>): T | undefined {
+    return this.spectator.query(selector) ?? undefined;
+  }
+
+  protected findComponentInstances<T>(selector: Type<T>): T[] {
+    return this.spectator.queryAll(selector);
+  }
+
+  protected findDebugElement(selector: string): DebugElement | undefined {
+    return this.spectator.debugElement.query(By.css(selector)) ?? undefined;
   }
 
   protected findDebugElements(selector: string): DebugElement[] {

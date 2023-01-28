@@ -1,0 +1,17 @@
+<div
+  [attr.role]="hasRole ? 'alert' : null"
+  [ngClass]="{
+    'border-red-600 bg-red-100 text-red-600': isOfDangerType(),
+    'border-sky-600 bg-sky-100 text-sky-800': isOfInfoType(),
+    'border-green-600 bg-green-100 text-green-800': isOfSuccessType()
+  }"
+  class="border p-2 clearfix rounded-sm"
+>
+  <tms-icon
+    class="float-left mr-1 -mt-px"
+    [name]="getIconName()"
+  ></tms-icon>
+  <div>
+    <ng-content></ng-content>
+  </div>
+</div>
