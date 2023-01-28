@@ -1,0 +1,15 @@
+<div
+  [class.pointer-events-none]="isPending"
+  class="relative"
+>
+  <div
+    [class.blur-sm]="isPending"
+    class="transition-all"
+  >
+    <ng-content></ng-content>
+  </div>
+  <tms-spinner
+    *ngIf="isPending"
+    class="absolute inset-1/2"
+  ></tms-spinner>
+</div>

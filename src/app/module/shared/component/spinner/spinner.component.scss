@@ -1,0 +1,20 @@
+.spinner {
+  animation: spinner 1s linear infinite;
+  border-radius: 2px;
+  height: 36px;
+  display: inline-block;
+  position: relative;
+  width: 36px;
+}
+
+@keyframes spinner {
+  0% {
+    transform: perspective(200px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(200px) rotateX(-180deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(200px) rotateX(-180deg) rotateY(-180deg);
+  }
+}

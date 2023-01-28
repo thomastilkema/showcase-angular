@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AlertComponent, IconComponent } from './component';
+import {
+  AlertComponent,
+  IconComponent,
+  PendingComponent,
+  SpinnerComponent,
+} from './component';
 import { ButtonDirective, ExternalLinkDirective } from './directive';
 
 @NgModule({
@@ -9,12 +14,15 @@ import { ButtonDirective, ExternalLinkDirective } from './directive';
     ButtonDirective,
     ExternalLinkDirective,
     IconComponent,
+    PendingComponent,
+    SpinnerComponent,
   ],
   exports: [
     AlertComponent,
     ButtonDirective,
     ExternalLinkDirective,
     IconComponent,
+    PendingComponent,
   ],
   imports: [CommonModule],
 })
