@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { selectIsUserLoggedIn, UserAction } from '@app/store/user';
+import { Store } from '@ngrx/store';
+import { map, Observable, tap } from 'rxjs';
 import { User, UserService } from '../user';
 import { AuthenticationError } from './auth.model';
 
@@ -7,7 +9,12 @@ import { AuthenticationError } from './auth.model';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private readonly userService: UserService) {}
+  isUserLoggedIn$ = this.store.select(selectIsUserLoggedIn);
+
+  constructor(
+    private readonly store: Store,
+    private readonly userService: UserService
+  ) {}
 
   logIn(emailAddress: string, password: string): Observable<User | void> {
     return this.userService.findUserByEmail(emailAddress).pipe(
@@ -18,8 +25,15 @@ export class AuthService {
 
         const { email, name } = foundUser;
         return { email, name };
+      }),
+      tap((user) => {
+        this.store.dispatch(UserAction.login(user));
       })
     );
+  }
+
+  logOut(): void {
+    this.store.dispatch(UserAction.logout({}));
   }
 
   signUp(emailAddress: string, _password: string): Observable<true | void> {
