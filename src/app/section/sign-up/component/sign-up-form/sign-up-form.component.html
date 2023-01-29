@@ -1,0 +1,45 @@
+<tms-form
+  [formGroup]="formGroup"
+  [submitRequest$]="submitRequest$"
+  (submitErrorEvent)="onSubmitError($event)"
+  (submitSuccessEvent)="onSubmitSuccess()"
+>
+  <tms-submit-error>
+    <ng-container *ngIf="isSubmitErrorUserAlreadyExists; else unknownSubmitError">A user with the provided email address already exists. Please sign up with another email address.</ng-container>
+    <ng-template #unknownSubmitError>Could not sign you up because of an unknown error. Please try again (in a few minutes).</ng-template>
+  </tms-submit-error>
+
+  <div tmsInputRow>
+    <tms-input
+      [control]="formGroup.controls['email']"
+      label="Email address"
+      type="email"
+    ></tms-input>
+  </div>
+
+  <div tmsInputRow>
+    <tms-input
+      [control]="formGroup.controls['password']"
+      label="Your new password"
+      type="password"
+    ></tms-input>
+  </div>
+
+  <div tmsInputRow>
+    <tms-input
+      [control]="formGroup.controls['passwordConfirm']"
+      label="Confirm your new password"
+      type="password"
+    ></tms-input>
+  </div>
+
+  <div tmsSubmitRow>
+    <div class="flex">
+      <tms-submit-button class="mr-8">Create account</tms-submit-button>
+      <a
+        class="underline hover:no-underline flex flex-wrap content-center text-lg"
+        [routerLink]="logInRoute"
+      >Or log in</a>
+    </div>
+  </div>
+</tms-form>

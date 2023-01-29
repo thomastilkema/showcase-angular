@@ -1,1 +1,19 @@
-<h1>This is the sign up page</h1>
+<div class="max-w-md mx-auto px-4 pt-8 pb-4">
+  <h1 class="text-center text-3xl font-extrabold dark:text-white mb-4">Create an account</h1>
+
+  <tms-alert
+    *ngIf="isSignedUp"
+    type="success"
+  >
+    Succes! Use the provided email address and password to <a class="underline" [routerLink]="loginRoute">log in</a>.
+  </tms-alert>
+
+  <ng-container *ngIf="!isSignedUp">
+    <ul class="list-disc italic ml-4 mb-4">
+      <li>This form doesn't really sign you up: it creates a fake request.</li>
+      <li *ngIf="existingEmailAddress$ | async as existingEmailAddress">You can use any email address except "{{ existingEmailAddress }}" (user already exists).</li>
+    </ul>
+
+    <tms-sign-up-form (signedUpEvent)="onSignedUp()"></tms-sign-up-form>
+  </ng-container>
+</div>
