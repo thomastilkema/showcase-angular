@@ -1,4 +1,4 @@
-import { Route } from '@app/core/constant';
+import { Route } from '@app/core';
 import { PageObject } from '@app/test';
 import { MainNavComponent } from './main-nav.component';
 
@@ -7,8 +7,16 @@ export class ComponentPageObject extends PageObject<MainNavComponent> {
     return this.findLinkByUrl('#main-content');
   }
 
+  getLogOutButton() {
+    return this.findElement('button');
+  }
+
   getNavigationLinks() {
     return this.findElements('nav ul li a');
+  }
+
+  hasLinkToDashboardPage() {
+    return this.hasLinkToRoute(Route.Dashboard);
   }
 
   hasLinkToSourceCode() {
