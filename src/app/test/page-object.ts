@@ -17,7 +17,7 @@ export class PageObject<Component> {
     return this.spectator.element;
   }
 
-  click(element: HTMLElement | null) {
+  click(element?: HTMLElement) {
     if (element) {
       element.click();
     }

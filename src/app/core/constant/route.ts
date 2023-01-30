@@ -1,4 +1,5 @@
 export enum Route {
+  Dashboard = '/dashboard',
   Home = '/',
   LogIn = '/log-in',
   SignUp = '/sign-up',

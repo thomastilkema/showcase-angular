@@ -12,8 +12,8 @@ const routes: Routes = [
   {
     component: DefaultLayoutComponent,
     loadChildren: () =>
-      import('@app/section/log-in').then((module) => module.LogInModule),
-    path: omitFirstCharacter(Route.LogIn),
+      import('@app/section/dashboard').then((module) => module.DashboardModule),
+    path: omitFirstCharacter(Route.Dashboard),
   },
   {
     component: DefaultLayoutComponent,

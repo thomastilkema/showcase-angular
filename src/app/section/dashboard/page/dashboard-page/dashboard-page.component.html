@@ -1,0 +1,8 @@
+<div class="text-center px-8 py-16">
+  <h1 class="text-5xl md:text-7xl font-extrabold" *ngIf="loggedInUser$ | async as loggedInUser">
+    Welcome {{ loggedInUser.name }}
+  </h1>
+  <p class="mt-1 mb-8 text-xl font-normal">This is your dashboard.</p>
+
+  <button tmsButton (click)="logOut()">Log out</button>
+</div>
