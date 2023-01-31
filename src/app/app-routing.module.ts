@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DefaultLayoutComponent, omitFirstCharacter, Route } from '@app/core';
+import {
+  DefaultLayoutComponent,
+  IsLoggedInGuard,
+  IsLoggedOutGuard,
+  omitFirstCharacter,
+  Route,
+} from '@app/core';
 
 const routes: Routes = [
   {
@@ -10,18 +16,21 @@ const routes: Routes = [
     path: omitFirstCharacter(Route.Home),
   },
   {
+    canMatch: [IsLoggedInGuard],
     component: DefaultLayoutComponent,
     loadChildren: () =>
       import('@app/section/dashboard').then((module) => module.DashboardModule),
     path: omitFirstCharacter(Route.Dashboard),
   },
   {
+    canMatch: [IsLoggedOutGuard],
     component: DefaultLayoutComponent,
     loadChildren: () =>
       import('@app/section/log-in').then((module) => module.LogInModule),
     path: omitFirstCharacter(Route.LogIn),
   },
   {
+    canMatch: [IsLoggedOutGuard],
     component: DefaultLayoutComponent,
     loadChildren: () =>
       import('@app/section/sign-up').then((module) => module.SignUpModule),
