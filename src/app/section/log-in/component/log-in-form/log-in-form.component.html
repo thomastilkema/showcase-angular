@@ -1,0 +1,40 @@
+<tms-form
+  [formGroup]="formGroup"
+  [submitRequest$]="submitRequest$"
+  (submitErrorEvent)="onSubmitError($event)"
+  (submitSuccessEvent)="onSubmitSuccess()"
+>
+<tms-submit-error>
+  <ng-container *ngIf="isSubmitErrorUserNotFound; else unknownSubmitError">Could not find a user with these credentials. If you don't have an account yet, you can <a
+    class="underline hover:no-underline"
+    [routerLink]="signUpRoute"
+  >sign up</a>.</ng-container>
+  <ng-template #unknownSubmitError>Could not log you in because of an unknown error. Please try again (in a few minutes).</ng-template>
+</tms-submit-error>
+
+  <div tmsInputRow>
+    <tms-input
+      [control]="formGroup.controls['email']"
+      label="Email address"
+      type="email"
+    ></tms-input>
+  </div>
+
+  <div tmsInputRow>
+    <tms-input
+      [control]="formGroup.controls['password']"
+      label="Password"
+      type="password"
+    ></tms-input>
+  </div>
+
+  <div tmsSubmitRow>
+    <div class="flex">
+      <tms-submit-button class="mr-8">Log in</tms-submit-button>
+      <a
+        class="underline hover:no-underline flex flex-wrap content-center text-lg"
+        [routerLink]="signUpRoute"
+      >Or create account</a>
+    </div>
+  </div>
+</tms-form>

@@ -18,6 +18,12 @@ const routes: Routes = [
   {
     component: DefaultLayoutComponent,
     loadChildren: () =>
+      import('@app/section/log-in').then((module) => module.LogInModule),
+    path: omitFirstCharacter(Route.LogIn),
+  },
+  {
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
       import('@app/section/sign-up').then((module) => module.SignUpModule),
     path: omitFirstCharacter(Route.SignUp),
   },

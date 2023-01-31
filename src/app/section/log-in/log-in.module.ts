@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { LogInPageComponent } from './page/log-in-page/log-in-page.component';
+import { FormModule } from '@app/module/form';
+import { LogInFormComponent } from './component';
 import { LogInRoutingModule } from './log-in-routing.module';
+import { LogInPageComponent } from './page';
 
 @NgModule({
-  declarations: [LogInPageComponent],
-  imports: [CommonModule, LogInRoutingModule],
+  declarations: [LogInFormComponent, LogInPageComponent],
+  imports: [CommonModule, FormModule, LogInRoutingModule],
 })
 export class LogInModule {}

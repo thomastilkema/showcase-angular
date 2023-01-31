@@ -1,1 +1,9 @@
-<h1>This is the log in page</h1>
+<div class="max-w-md mx-auto px-4 pt-8 pb-4">
+  <h1 class="text-center text-3xl font-extrabold dark:text-white mb-4">Log in</h1>
+
+  <p *ngIf="fakeUser$ | async as fakeUser" class="italic mb-4 text-center">
+    You can login with "{{ fakeUser.email }}" and "{{ fakeUser.password }}"
+  </p>
+
+  <tms-log-in-form (loggedInEvent)="onLoggedIn()"></tms-log-in-form>
+</div>
