@@ -30,4 +30,8 @@ export class ComponentPageObject extends PageObject<InputComponent> {
 
     return undefined;
   }
+
+  hasAriaInvalidAttribute() {
+    return this.getInputField()?.getAttribute('aria-invalid') === 'true';
+  }
 }

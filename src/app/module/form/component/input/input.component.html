@@ -13,6 +13,7 @@
   ></tms-icon>
   <input
     class="block border text-slate-700 p-2 w-full rounded-sm"
+    [attr.aria-invalid]="shouldDisplayInputErrors() ? 'true' : undefined"
     [attr.id]="id"
     [attr.name]="id"
     [attr.type]="type"

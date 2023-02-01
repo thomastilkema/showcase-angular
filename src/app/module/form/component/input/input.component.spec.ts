@@ -77,6 +77,18 @@ describe('The <tms-input> component', () => {
       pageObject.detectChanges();
       expect(pageObject.getWarningIcon()).toBeTruthy();
     });
+
+    it('should add the aria-invalid="true" attribute', () => {
+      const { formControl, pageObject } = setup();
+
+      formControl.setErrors({ some: 'error' });
+      pageObject.detectChanges();
+      expect(pageObject.hasAriaInvalidAttribute()).toBe(false);
+
+      formControl.markAsDirty();
+      pageObject.detectChanges();
+      expect(pageObject.hasAriaInvalidAttribute()).toBe(true);
+    });
   });
 
   it('should display an input field', () => {
