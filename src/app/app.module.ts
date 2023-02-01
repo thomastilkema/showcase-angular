@@ -2,8 +2,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TitleStrategy } from '@angular/router';
 import {
   AppComponent,
+  AppTitleStrategy,
   DefaultLayoutComponent,
   IsLoggedInGuard,
   IsLoggedOutGuard,
@@ -26,7 +28,14 @@ import { effects, reducers } from './store';
     EffectsModule.forRoot(effects),
     SharedModule,
   ],
-  providers: [IsLoggedInGuard, IsLoggedOutGuard],
+  providers: [
+    IsLoggedInGuard,
+    IsLoggedOutGuard,
+    {
+      provide: TitleStrategy,
+      useClass: AppTitleStrategy,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
