@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
   AlertComponent,
+  ExpandableComponent,
   IconComponent,
   PendingComponent,
   SpinnerComponent,
@@ -12,6 +13,7 @@ import { ButtonDirective, ExternalLinkDirective } from './directive';
   declarations: [
     AlertComponent,
     ButtonDirective,
+    ExpandableComponent,
     ExternalLinkDirective,
     IconComponent,
     PendingComponent,
@@ -20,6 +22,7 @@ import { ButtonDirective, ExternalLinkDirective } from './directive';
   exports: [
     AlertComponent,
     ButtonDirective,
+    ExpandableComponent,
     ExternalLinkDirective,
     IconComponent,
     PendingComponent,

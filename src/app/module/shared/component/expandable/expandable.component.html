@@ -1,0 +1,29 @@
+<div class="border border-slate-300 dark:border-slate-400 -mt-px">
+  <div class="flex items-center p-2 cursor-pointer" (click)="toggleContent()">
+    <div class="pr-2">
+      <tms-icon
+        class="block transition-transform duration-200"
+        name="chevron-right"
+        [height]="16"
+        [ngClass]="{
+          'rotate-0': !isOpen,
+          'rotate-90': isOpen
+        }"
+        [width]="16"
+      ></tms-icon>
+    </div>
+    <ng-content
+      select="[data-tms-expandable-toggle]"
+    ></ng-content>
+  </div>
+  <div
+    class="overflow-hidden"
+    [@toggle]="isOpen ? 'open' : 'closed'"
+  >
+    <div class="px-3 pb-3">
+      <ng-content
+        select="[data-tms-expandable-content]"
+      ></ng-content>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   AppComponent,
   DefaultLayoutComponent,
@@ -18,6 +19,7 @@ import { effects, reducers } from './store';
   declarations: [AppComponent, DefaultLayoutComponent, MainNavComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
