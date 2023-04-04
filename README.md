@@ -1,5 +1,7 @@
 # Showcase of how I write an Angular app
 
+You can take a lookt at [https://showcase-angular.vercel.app](https://showcase-angular.vercel.app) to see the app in action.
+
 ## Why this app?
 
 To give potential clients (I'm a freelance front-end developer) an idea of how I write (Angular) code and unit tests.
